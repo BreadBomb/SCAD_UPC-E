@@ -3,14 +3,12 @@ $fn = 100;
 //barcode = this is the 12 digit barcode
 //height = the thickness of the physical object (assuming 3d-print)
 //stretch = This is how tall you want the object to be
-//keychain = keychain bit, 0 if no, 1 if yes
-//inverse = will make the "spaces" the solid (good when a darker background is used)
+//inverse = will make the "spaces" the ( (good when a darker background is used)
 	//0 is deafult of no, 1 means yes
-//laser = 0 if this is a normal 3d printed file, 1 if this is to be expored to dxf for laser cutter
 
-//barcode(462409702600,35,1,1,0,0);
+//barcode(654321,10,1,0);
 
-module barcode(barcode, height, stretch, inverse) {
+module barcode(barcode, height, thickness, stretch, inverse) {
 
 digit_1 = floor(((barcode/100000) % 10));
 digit_2 = floor(((barcode/10000) % 10));
@@ -23,10 +21,10 @@ echo(digit_1);
 object(barcode, height, stretch, inverse);
 
 
-module object(barcode, height, stretch, inverse){
+module object(barcode, height, thickness,  stretch, inverse){
     if (inverse == 1) {
         difference(){
-            cube([111,2,35]);
+            cube([51 * stretch,thickness,height]);
             bars();
         }
     } else {
@@ -109,161 +107,155 @@ module bars(){
 }
 
 module start() {
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([2 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module end() {
 	translate([1 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
     translate([3* stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
     translate([5 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 
 module number0even() {
 	translate([1 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([4 * stretch,0,0])
-	cube([3 * stretch,2,height]);
+	cube([3 * stretch,thickness,height]);
 }
 
 module number0odd() {
 	translate([3 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number1even() {
 	translate([1 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 	translate([5 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 }
 
 module number1odd() {
 	translate([2 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number2even() {
 	translate([2 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 	translate([5 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 }
 
 module number2odd() {
 	translate([2 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([5 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 }
 
 
 module number3even() {
 	translate([1 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number3odd() {
 	translate([1 * stretch,0,0])
-	cube([4 * stretch,2,height]);
+	cube([4 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number4even() {
 	translate([2 * stretch,0,0])
-	cube([3 * stretch,2,height]);
+	cube([3 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number4odd() {
 	translate([1 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([5 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 }
 
 module number5even() {
 	translate([1 * stretch,0,0])
-	cube([3 * stretch,2,height]);
+	cube([3 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number5odd() {
 	translate([1 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 module number6even() {
 	translate([4 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number6odd() {
 	translate([1 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([3 * stretch,0,0])
-	cube([4 * stretch,2,height]);
+	cube([4 * stretch,thickness,height]);
 }
 module number7even() {
 	translate([2 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 }
 module number7odd() {
 	translate([1 * stretch,0,0])
-	cube([3 * stretch,2,height]);
+	cube([3 * stretch,thickness,height]);
 	translate([5 * stretch,0,0])
-	cube([2 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 }
 module number8even() {
 	translate([3 * stretch,0,0])
-	cube([1 * stretch,2,height+6]);
+	cube([1 * stretch,thickness,height+6]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,2,height+6]);
+	cube([1 * stretch,thickness,height+6]);
 }
 
 module number8odd() {
 	translate([1 * stretch,0,0])
-	cube([2 * stretch,2,height+6]);
+	cube([2 * stretch,thickness,height+6]);
 	translate([4 * stretch,0,0])
-	cube([3 * stretch,2,height+6]);
+	cube([3 * stretch,thickness,height+6]);
 }
 module number9even() {
 	translate([2 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([4 * stretch,0,0])
-	cube([3 * stretch,2,height]);
+	cube([3 * stretch,thickness,height]);
 }
 
 module number9odd() {
 	translate([3 * stretch,0,0])
-	cube([1 * stretch,2,height]);
+	cube([1 * stretch,thickness,height]);
 	translate([5 * stretch,0,0])
-	cube([2 * stretch,2,height]);
-}
-
-//Used in conjunction with right digits
-module solid() {
-	translate([0,0,0])
-	cube([7 * stretch,2,height]);
+	cube([2 * stretch,thickness,height]);
 }
 
 }
