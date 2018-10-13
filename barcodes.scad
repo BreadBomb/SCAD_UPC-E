@@ -1,10 +1,11 @@
 $fn = 100;
 
 //barcode = this is the 12 digit barcode
-//height = the thickness of the physical object (assuming 3d-print)
+//height = the height of the physical object
+//thickness = the thickness of the bars
 //stretch = This is how tall you want the object to be
 //inverse = will make the "spaces" the ( (good when a darker background is used)
-	//0 is deafult of no, 1 means yes
+//0 is deafult of no, 1 means yes
 
 //barcode(654321,10,1,0);
 
@@ -16,8 +17,7 @@ digit_3 = floor(((barcode/1000) % 10));
 digit_4 = floor(((barcode/100) % 10));
 digit_5 = floor(((barcode/10) % 10));
 digit_6 = (barcode % 10);
-    
-echo(digit_1);
+  
 object(barcode, height, stretch, inverse);
 
 
