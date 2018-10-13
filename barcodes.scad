@@ -233,16 +233,16 @@ module number7odd() {
 }
 module number8even() {
 	translate([3 * stretch,0,0])
-	cube([1 * stretch,thickness,height+6]);
+	cube([1 * stretch,thickness,height]);
 	translate([6 * stretch,0,0])
-	cube([1 * stretch,thickness,height+6]);
+	cube([1 * stretch,thickness,height]);
 }
 
 module number8odd() {
 	translate([1 * stretch,0,0])
-	cube([2 * stretch,thickness,height+6]);
+	cube([2 * stretch,thickness,height]);
 	translate([4 * stretch,0,0])
-	cube([3 * stretch,thickness,height+6]);
+	cube([3 * stretch,thickness,height]);
 }
 module number9even() {
 	translate([2 * stretch,0,0])
