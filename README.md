@@ -13,3 +13,5 @@ This is an openscad script to generate UPC-E barcodes
 ```
 barcode(654321,10,2,1,0);
 ```
+
+This is a Remix of XlogicXs UPC Barcode Generator: https://www.thingiverse.com/thing:311438
